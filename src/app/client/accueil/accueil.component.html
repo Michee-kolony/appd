@@ -508,7 +508,43 @@
 
 
 
+<div class="fixed bottom-6 right-6 z-50">
+  <div class="relative bg-white rounded-xl shadow-2xl border border-gray-100 flex items-start sm:items-center gap-4 p-4 w-full max-w-xs sm:max-w-sm lg:max-w-md transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+    
+    <!-- Bouton de fermeture -->
+    <button class="absolute -top-2 -right-2 bg-white border border-gray-200 text-gray-500 hover:text-gray-900 hover:bg-gray-50 hover:border-gray-300 hover:scale-110 transition-all duration-200 rounded-full w-6 h-6 flex items-center justify-center text-base font-bold shadow-md active:scale-95">
+      &times;
+    </button>
 
+    <!-- Image/Icone -->
+    <div class="relative flex-shrink-0">
+      <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center overflow-hidden">
+        <img src="images/casual-jeune-homme-africain-souriant-isole-blanc_93675-128895.avif" alt="Discussion" class="w-full h-full object-cover">
+        <!-- Icône de secours -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-600/10"></div>
+      </div>
+      <!-- Badge en ligne -->
+      <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
+    </div>
+
+    <!-- Contenu texte -->
+    <div class="flex-1 min-w-0">
+      <p class="text-sm sm:text-base font-semibold text-gray-900 leading-tight mb-1">
+       Centre d'aide
+      </p>
+      <p class="text-xs sm:text-sm text-gray-600 font-medium leading-snug">
+        Notre équipe est prête à discuter avec vous.
+      </p>
+    </div>
+
+
+  </div>
+
+  <!-- Animation de pulsation subtile -->
+  <div class="absolute -top-1 -right-1 w-4 h-4">
+    <div class="absolute inset-0 bg-blue-500 rounded-full opacity-0 animate-ping"></div>
+  </div>
+</div>
 
 
 
