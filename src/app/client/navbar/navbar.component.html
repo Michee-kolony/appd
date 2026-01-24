@@ -1,0 +1,37 @@
+<nav 
+  #navbar 
+  class="fixed w-full top-0 left-0 z-50 transition-colors duration-500"
+>
+  <div class="container mx-auto flex items-center justify-between  px-6">
+    
+    <!-- Logo -->
+    <a href="/" class=" text-2xl font-bold">
+      <img src="images/logo.png" class="w-[150px]"/>
+    </a>
+
+    <!-- Menu Desktop -->
+    <ul class="hidden md:flex space-x-8">
+      <li><a href="#" class="text-white no-underline hover:text-gray-300 transition">Accueil</a></li>
+      <li><a href="#" class="text-white  no-underline hover:text-gray-300 transition">À propos</a></li>
+      <li><a href="#" class="text-white  no-underline hover:text-gray-300 transition">Services</a></li>
+       <li><a href="#" class="text-white  no-underline hover:text-gray-300 transition">Contact</a></li>
+      <li><a href="#" class="text-white  no-underline hover:text-gray-300 transition border py-3 px-5 rounded-md">Faire un don</a></li>
+    </ul>
+
+    <!-- Hamburger Mobile -->
+    <div class="md:hidden">
+      <button (click)="toggleMenu()" class=" focus:outline-none text-white">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Mobile Menu -->
+  <ul *ngIf="menuOpen" class="md:hidden bg-blue-900 text-white flex flex-col space-y-2 px-6 py-4">
+    <li><a href="#" class="text-white no-underline hover:text-gray-300 transition">Accueil</a></li>
+    <li><a href="#" class="text-white no-underline hover:text-gray-300 transition">À propos</a></li>
+    <li><a href="#" class="text-white no-underline hover:text-gray-300 transition">Services</a></li>
+    <li><a href="#" class="text-white no-underline hover:text-gray-300 transition">Contact</a></li>
+  </ul>
+</nav>

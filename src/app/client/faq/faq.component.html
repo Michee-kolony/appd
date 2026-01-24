@@ -1,0 +1,22 @@
+<section class="bg-blue-800 py-20 px-4 md:px-12">
+  <div class="max-w-4xl mx-auto text-white">
+    <h2 class="text-4xl font-bold mb-8 text-center">Foire Aux Questions (FAQ)</h2>
+    
+    <div *ngFor="let faq of faqs; let i = index" class="mb-4 border-b border-blue-600">
+      <button 
+        class="w-full flex justify-between items-center py-4 text-left font-bold text-lg focus:outline-none"
+        (click)="toggleFaq(i)">
+        {{ faq.question }}
+        <i class="fas" [ngClass]="faq.open ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+      </button>
+      
+      <div 
+        class="overflow-hidden transition-all duration-500 ease-in-out"
+        [style.maxHeight]="faq.open ? '500px' : '0'">
+        <p class="mt-2 text-white font-thin text-base">
+          {{ faq.answer }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
