@@ -10,6 +10,8 @@ import { NavbarComponent } from './client/navbar/navbar.component';
 import { FaqComponent } from './client/faq/faq.component';
 import { FooterComponent } from './client/footer/footer.component';
 import { ContactComponent } from './client/contact/contact.component';
+import { DonnationComponent } from './client/donnation/donnation.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,11 +22,14 @@ import { ContactComponent } from './client/contact/contact.component';
     NavbarComponent,
     FaqComponent,
     FooterComponent,
-    ContactComponent
+    ContactComponent,
+    DonnationComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

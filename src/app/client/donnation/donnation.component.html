@@ -1,0 +1,108 @@
+<div class="bg-cover bg-center min-h-screen flex items-center justify-center px-4 py-32" style="background-image: url(images/2149021909.jpg);">
+
+  <div class="w-full max-w-lg bg-white rounded-2xl shadow-2xl p-8 md:p-10">
+
+    <!-- TITRE -->
+    <div class="text-center mb-8">
+      <h2 class="text-3xl font-bold text-blue-900">Faire un don</h2>
+      <p class="text-gray-500 mt-2">
+        Choisissez un moyen de paiement sécurisé
+      </p>
+    </div>
+
+    <!-- MONTANT -->
+    <div class="mb-6">
+      <label class="block text-sm font-medium text-gray-700 mb-2">
+        Montant ($)
+      </label>
+      <input
+        type="number"
+        [(ngModel)]="donationData.amount"
+        class="w-full h-12 px-4 border rounded-lg focus:ring-2 focus:ring-blue-900"
+        placeholder="Ex : 10, 50, 100"
+      />
+    </div>
+
+    <!-- MOYENS DE PAIEMENT -->
+    <div class="mb-8">
+      <p class="text-sm font-medium text-gray-700 mb-3">
+        Méthode de paiement
+      </p>
+
+      <div class="grid grid-cols-2 gap-4">
+
+        <!-- MasterCard -->
+        <div
+          (click)="selectPayment('mastercard')"
+          [class.border-blue-900]="selectedPayment === 'mastercard'"
+          class="border rounded-xl p-4 flex justify-center cursor-pointer hover:border-blue-900 transition">
+          💳 MasterCard
+        </div>
+
+        <!-- Orange Money -->
+        <div
+          (click)="selectPayment('orange')"
+          [class.border-blue-900]="selectedPayment === 'orange'"
+          class="border rounded-xl p-4 flex justify-center cursor-pointer hover:border-blue-900 transition">
+          🟧 Orange Money
+        </div>
+
+        <!-- Airtel -->
+        <div
+          (click)="selectPayment('airtel')"
+          [class.border-blue-900]="selectedPayment === 'airtel'"
+          class="border rounded-xl p-4 flex justify-center cursor-pointer hover:border-blue-900 transition">
+          🔴 Airtel Money
+        </div>
+
+        <!-- M-Pesa -->
+        <div
+          (click)="selectPayment('mpesa')"
+          [class.border-blue-900]="selectedPayment === 'mpesa'"
+          class="border rounded-xl p-4 flex justify-center cursor-pointer hover:border-blue-900 transition">
+          🔵 M-Pesa
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FORMULAIRE MOBILE MONEY -->
+    <div *ngIf="selectedPayment === 'orange' || selectedPayment === 'airtel' || selectedPayment === 'mpesa'"
+         class="space-y-4 mb-8">
+
+      <input
+        type="text"
+        [(ngModel)]="donationData.name"
+        placeholder="Nom complet"
+        class="w-full h-12 px-4 border rounded-lg focus:ring-2 focus:ring-blue-900"
+      />
+
+      <input
+        type="email"
+        [(ngModel)]="donationData.email"
+        placeholder="Adresse email"
+        class="w-full h-12 px-4 border rounded-lg focus:ring-2 focus:ring-blue-900"
+      />
+
+      <input
+        type="tel"
+        [(ngModel)]="donationData.phone"
+        placeholder="Numéro de téléphone"
+        class="w-full h-12 px-4 border rounded-lg focus:ring-2 focus:ring-blue-900"
+      />
+    </div>
+
+    <!-- BOUTON -->
+    <button
+      (click)="submitDonation()"
+      class="w-full h-12 bg-blue-900 hover:bg-blue-800 text-white font-semibold rounded-xl transition">
+      💙 Confirmer le don
+    </button>
+
+    <p class="text-center text-xs text-gray-400 mt-6">
+      Paiement sécurisé • Don traçable et confidentiel
+    </p>
+
+  </div>
+
+</div>
