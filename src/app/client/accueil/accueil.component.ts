@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Splide from '@splidejs/splide';
@@ -8,13 +8,19 @@ import Splide from '@splidejs/splide';
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.css']
 })
-export class AccueilComponent implements AfterViewInit {
+export class AccueilComponent implements OnInit, AfterViewInit {
+
+  chatbot = false;
+
+  @ViewChild('notificationAudio') audioRef!: ElementRef<HTMLAudioElement>;
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.openChatbot();
+    }, 5000);
+  }
 
   ngAfterViewInit(): void {
-
-    /* =========================
-       GSAP – Compteurs
-    ========================== */
     gsap.registerPlugin(ScrollTrigger);
 
     const counters = document.querySelectorAll('.counter');
@@ -29,7 +35,6 @@ export class AccueilComponent implements AfterViewInit {
 
     counters.forEach((counter: any) => {
       const endValue = +counter.getAttribute('data-value');
-
       tl.fromTo(
         counter,
         { innerText: 0 },
@@ -43,9 +48,6 @@ export class AccueilComponent implements AfterViewInit {
       );
     });
 
-    /* =========================
-       SPLIDE – Media cards
-    ========================== */
     new Splide('#media-splide', {
       type: 'loop',
       perPage: 1,
@@ -56,10 +58,24 @@ export class AccueilComponent implements AfterViewInit {
       arrows: true,
       pagination: true,
       breakpoints: {
-        768: {
-          perPage: 1
-        }
+        768: { perPage: 1 }
       }
     }).mount();
+  }
+
+  /** Ouvre le chatbot + joue le son */
+  openChatbot() {
+    this.chatbot = true;
+
+    if (this.audioRef) {
+      this.audioRef.nativeElement.currentTime = 0;
+      this.audioRef.nativeElement.play().catch(() => {
+        // évite les erreurs navigateur (autoplay policy)
+      });
+    }
+  }
+
+  closechatbot() {
+    this.chatbot = false;
   }
 }
