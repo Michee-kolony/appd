@@ -5,6 +5,7 @@ import { AccueilComponent } from './client/accueil/accueil.component';
 import { AboutComponent } from './client/about/about.component';
 import { ContactComponent } from './client/contact/contact.component';
 import { DonnationComponent } from './client/donnation/donnation.component';
+import { ActivitesComponent } from './client/activites/activites.component';
 
 const routes: Routes = [
   {path:'', redirectTo: 'ONG', pathMatch: 'full'},
@@ -14,7 +15,8 @@ const routes: Routes = [
       {path: 'accueil', component : AccueilComponent},
       {path: 'about', component: AboutComponent},
       {path:'contact', component: ContactComponent},
-      {path:'donnation', component: DonnationComponent}
+      {path:'donnation', component: DonnationComponent},
+      {path:'activites', component: ActivitesComponent}
     ]
   }
 ];

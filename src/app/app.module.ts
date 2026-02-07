@@ -12,6 +12,7 @@ import { FooterComponent } from './client/footer/footer.component';
 import { ContactComponent } from './client/contact/contact.component';
 import { DonnationComponent } from './client/donnation/donnation.component';
 import { FormsModule } from '@angular/forms';
+import { ActivitesComponent } from './client/activites/activites.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     FaqComponent,
     FooterComponent,
     ContactComponent,
-    DonnationComponent
+    DonnationComponent,
+    ActivitesComponent
   ],
   imports: [
     BrowserModule,
